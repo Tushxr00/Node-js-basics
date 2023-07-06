@@ -23,6 +23,9 @@ fs.writeFile("./docs/blog1.txt", "hello, senpai", (err, data) => {
   console.log("file was written");
 });
 
+fs.writeFile("./docs/blog2.txt", "hello", (err, data) => {
+  console.log("file was written");
+});
 /**
  * diretories
  * */
