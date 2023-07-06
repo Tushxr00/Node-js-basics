@@ -19,16 +19,34 @@ const fs = require("fs");
  * writing files
  * */
 
-fs.writeFile("./docs/blog1.txt", "hello, senpai", (err, data) => {
-  console.log("file was written");
-});
+// fs.writeFile("./docs/blog1.txt", "hello, senpai", (err, data) => {
+//   console.log("file was written");
+// });
 
-fs.writeFile("./docs/blog2.txt", "hello", (err, data) => {
-  console.log("file was written");
-});
+// fs.writeFile("./docs/blog2.txt", "hello", (err, data) => {
+//   console.log("file was written");
+// });
+
 /**
  * diretories
  * */
+
+// if (!fs.existsSync("./assets")) {
+//   fs.mkdir("./assets", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("folder created");
+//   });
+// } else {
+//   //   console.log("folder already exsits");
+//   fs.rmdir("./assets", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("folder deleted");
+//   });
+// }
 
 /**
  * deleting files
