@@ -31,23 +31,32 @@ const fs = require("fs");
  * diretories
  * */
 
-if (!fs.existsSync("./assets")) {
-  fs.mkdir("./assets", (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("folder created");
-  });
-} else {
-  //   console.log("folder already exsits");
-  fs.rmdir("./assets", (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("folder deleted");
-  });
-}
+// if (!fs.existsSync("./assets")) {
+//   fs.mkdir("./assets", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("folder created");
+//   });
+// } else {
+//   //   console.log("folder already exsits");
+//   fs.rmdir("./assets", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("folder deleted");
+//   });
+// }
 
 /**
  * deleting files
  * */
+
+if (fs.existsSync("./docs/deleteMe.txt")) {
+  fs.unlink("./docs/deleteMe.txt", (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("file deleted");
+  });
+}
