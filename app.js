@@ -2,7 +2,12 @@
 const http = require("http");
 
 const rqListener = (request, response) => {
-  console.log({ request: request, response: response });
+  //   console.log({ request: request, response: response });
+  console.log({
+    url: request.url,
+    method: request.method,
+    headers: request.headers,
+  });
 };
 
 // creating a server using http.createServer merthod
