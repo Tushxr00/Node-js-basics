@@ -8,6 +8,15 @@ const rqListener = (request, response) => {
     method: request.method,
     headers: request.headers,
   });
+
+  response.setHeader("Content-Type", "text/html");
+  response.write("<html>");
+  response.write("<head><title>my first page</title></head>");
+  response.write(
+    "<body><h1> This is an hello world response form my node js application</h1></body>"
+  );
+  response.write("</html>");
+  response.end();
 };
 
 // creating a server using http.createServer merthod
