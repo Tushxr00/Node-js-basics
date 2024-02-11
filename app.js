@@ -14,9 +14,14 @@ const rqListener = (request, response) => {
     return response.end();
   }
   if (url === "/message" && method === "POST") {
-    console.log("here");
-    // const message = response.body;
-    fs.writeFileSync("message.text", "Dummy text");
+    const body = [];
+    request.on("data", (chunk) => {
+      body.push(chunk);
+    });
+    request.on("end", () => {
+      const parsedBody = Buffer.concat(body).toString();
+      fs.writeFileSync("message.txt", parsedBody.split("=")[1]);
+    });
     response.statusCode = 302;
     response.setHeader("Location", "/");
     return response.end();
