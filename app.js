@@ -1,14 +1,26 @@
 // import http from core global modules of nodejs
 const http = require("http");
-
+const fs = require("fs");
 const rqListener = (request, response) => {
-  //   console.log({ request: request, response: response });
-  console.log({
-    url: request.url,
-    method: request.method,
-    headers: request.headers,
-  });
-
+  const url = request.url;
+  const method = request.method;
+  if (url === "/") {
+    response.write("<html>");
+    response.write("<head><title>Enter Message</title></head>");
+    response.write(
+      "<body><form action='/message' method='POST'> <input type='text' name='message' ><button type='submit'>Send Info</button></form></body>"
+    );
+    response.write("</html>");
+    return response.end();
+  }
+  if (url === "/message" && method === "POST") {
+    console.log("here");
+    // const message = response.body;
+    fs.writeFileSync("message.text", "Dummy text");
+    response.statusCode = 302;
+    response.setHeader("Location", "/");
+    return response.end();
+  }
   response.setHeader("Content-Type", "text/html");
   response.write("<html>");
   response.write("<head><title>my first page</title></head>");
