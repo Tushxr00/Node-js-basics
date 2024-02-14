@@ -1,6 +1,7 @@
 // import http from core global modules of nodejs
 const http = require("http");
 const fs = require("fs");
+
 const rqListener = (request, response) => {
   const url = request.url;
   const method = request.method;
@@ -41,4 +42,4 @@ const rqListener = (request, response) => {
 const server = http.createServer(rqListener);
 
 // node js starts to listen and its listening the port 3000 as we have passed as props
-server.listen(3000);
+server.listen(3001);
