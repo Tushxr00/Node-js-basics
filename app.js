@@ -21,7 +21,7 @@ const rqListener = (request, response) => {
     });
     request.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
-      fs.watchFile("message.txt", parsedBody.split("=")[1], (err) => {
+      fs.writeFile("message.txt", parsedBody.split("=")[1], (err) => {
         response.statusCode = 302;
         response.setHeader("Location", "/");
         return response.end();
