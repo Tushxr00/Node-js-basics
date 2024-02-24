@@ -22,10 +22,10 @@ const rqListener = (request, response) => {
     request.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       fs.writeFileSync("message.txt", parsedBody.split("=")[1]);
+      response.statusCode = 302;
+      response.setHeader("Location", "/");
+      return response.end();
     });
-    response.statusCode = 302;
-    response.setHeader("Location", "/");
-    return response.end();
   }
   response.setHeader("Content-Type", "text/html");
   response.write("<html>");
