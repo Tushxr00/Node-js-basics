@@ -36,4 +36,7 @@ const requestHandler = (request, response) => {
   response.end();
 };
 
-module.exports = requestHandler;
+module.exports = {
+  handler: requestHandler,
+  someText: "this is dummy text response",
+};
