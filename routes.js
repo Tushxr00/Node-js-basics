@@ -17,7 +17,7 @@ const requestHandler = (request, response) => {
     request.on("data", (chunk) => {
       body.push(chunk);
     });
-    request.on("end", () => {
+    return request.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       fs.writeFile("message.txt", parsedBody.split("=")[1], (err) => {
         response.statusCode = 302;
